@@ -1,3 +1,9 @@
+Creado con 
+
+Astro
+React
+TailwindCSS
+
 # Astro Starter Kit: Basics
 
 ```sh
