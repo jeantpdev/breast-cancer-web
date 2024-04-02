@@ -1,0 +1,58 @@
+---
+import Tarjetas from '../components/acerca_de/Tarjetas.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Acerca de">
+    <div class="flex flex-col gap-y-10">
+        <div class="flex flex-col gap-y-10 sm:flex sm:flex-row sm:gap-x-10">
+            <div class="flex flex-col gap-y-5 sm:flex sm:flex-col sm:gap-y-4">
+                <h2 class="text-4xl font-bold">¿Qué es el cancer de mama?</h2>
+                <article>
+                    El cáncer de mama es una enfermedad que se origina en las células de
+                    la mama. A medida que las células crecen y se dividen, pueden
+                    producir una masa o tumor en la mama, que a veces se puede sentir
+                    como un bulto o protuberancia. Si estas células se extienden fuera
+                    de la mama hacia otros tejidos, como los ganglios linfáticos, se
+                    considera que el cáncer se ha diseminado o metastatizado.
+                </article>
+        
+                <h2 class="text-4xl font-bold">Causas del cancer de mama</h2>
+        
+                <article>
+                    Las causas del cáncer de mama no se conocen con certeza, pero se
+                    sabe que hay algunos factores de riesgo que pueden aumentar la
+                    probabilidad de desarrollar la enfermedad. Algunos de estos factores
+                    incluyen: Edad: el cáncer de mama es más común en mujeres mayores de
+                    50 años.
+                </article>
+            </div>
+
+            <div class="flex justify-center gap-y-4">
+                <iframe
+                class="h-[400px] w-[400px] sm:h-[300px] sm:w-[500px]"
+                src="https://www.youtube.com/embed/7uYPYcM2RUY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+            </div>
+        </div>
+    
+        <div class="tarjetas flex flex-wrap gap-y-4 sm:justify-around">
+            <Tarjetas titulo = "INFORMACIÓN DATA" descripcion = "Información acerca de la data sobre el cancer de mama." redireccion = "#" />
+            <Tarjetas titulo = "CRISP-DM" descripcion = "Información acerca de la metodología CRISP-DM." redireccion = "#" />
+            <Tarjetas titulo = "REALIZAR PRUEBA" descripcion = "Realiza la prueba para obtener la predicción según los datos que proporciones." redireccion = "/prueba/" />
+            <Tarjetas titulo = "GRÁFICOS" descripcion = "Gráficos acerca del algoritmo realizado con ML." redireccion = "#" />
+
+
+        </div>
+
+    </div>
+</Layout>
+
+<script
+    src="https://kit.fontawesome.com/1a5bcd4a97.js"
+    crossorigin="anonymous"
+></script>
