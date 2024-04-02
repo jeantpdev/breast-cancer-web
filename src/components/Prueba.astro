@@ -1,0 +1,173 @@
+---
+import significado from "./data/significado.json";
+---
+<div class="flex flex-col-reverse content-center mt-15 md:px-24 md:py-24 md:items-center md:flex-row-reverse">
+
+  <form class="md:w-1/2">
+
+      <div class="flex flex-wrap justify-center">
+
+        <div class="">
+          <label class="block uppercase tracking-wide w-72 md:w-full text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Nombre
+          </label>
+          <input class="appearance-none block w-full  text-gray-700 border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Tu nombre">
+          <!--<p class="text-red-500 text-xs italic">Please fill out this field.</p>  -->
+        </div>
+
+        <div class="flex flex-wrap md:gap-x-5 justify-center">
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Edad
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.age.sort().map((age) => (
+                  <option>{age}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Menopause
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.menopause.sort().map((menopause) => (
+                  <option>{menopause}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Tumor size
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.tumorSize.sort().map((size) => (
+                  <option>{size}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              inv-nodes
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.invNodes.sort().map((invNodes) => (
+                  <option>{invNodes}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              node-caps
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.nodeCaps.sort().map((nodeCaps) => (
+                  <option>{nodeCaps}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              deg-malig
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.degMalig.sort().map((degMalig) => (
+                  <option>{degMalig}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+  
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              breast
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.breast.sort().map((breast) => (
+                  <option>{breast}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+  
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              breast-quead
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.breastQuad.sort().map((breastQuad) => (
+                  <option>{breastQuad}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+  
+          <div class="">
+            <label class="block uppercase tracking-wide w-72 md:w-auto text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              irradiat
+            </label>
+            <div class="relative">
+              <select class="block appearance-none w-full md:w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                {significado.irradiat.sort().map((irradiat) => (
+                  <option>{irradiat}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+  </form>
+
+  <div class="md:w-1/2">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil commodi eos modi illum neque numquam facere eaque sed ea nemo nesciunt eveniet, eligendi, veniam fuga vel architecto aperiam quis?</p>
+  </div>
+
+</div>
