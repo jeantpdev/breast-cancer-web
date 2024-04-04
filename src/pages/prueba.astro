@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Pruebas from '../components/Prueba.astro';
+import PruebaReact from '../pages/PruebaReact';
 ---
 
-<Layout title="Welcome to Astro.">
-    <Pruebas />
+<Layout title="Prueba">
+    <PruebaReact client:load/>
 </Layout>

@@ -1,5 +1,5 @@
 {
-    "tumorSize": ["30-34", "20-24", "15-19", "00-04", "25-29", "50-54", "10-14", "40-44", "35-39", "05-09", "45-49"],
+    "tumorSize": ["30-34", "20-24", "15-19", "0-4", "25-29", "50-54", "10-14", "40-44", "35-39", "5-9", "45-49"],
     "class": ["no-recurrence-events", "recurrence-events"],
     "age": ["30-39", "40-49", "60-69", "50-59", "70-79", "20-29"],
     "menopause": ["premeno", "ge40", "lt40"],
@@ -9,5 +9,4 @@
     "breast": ["left", "right"],
     "breastQuad": ["left_low", "right_up", "left_up", "right_low", "central"],
     "irradiat": ["no", "yes"]
-  }
-  
+}
