@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import significados from "./data/significados.json";
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default function PruebaReact() {
 
@@ -30,15 +31,25 @@ export default function PruebaReact() {
   }
 
   async function realizarPrueba(){
-    const values = getValues()
-    const res = await getData(values)
-    setResultado(res.data.resultado_prueba)
-    console.log(resultado)
+    try {
+      const values = getValues()
+      const res = await getData(values)
+      //Se asigna resultado al hook
+      setResultado(res.data.resultado_prueba)
+    } catch (error) {
+      console.log(error.code)
+      Swal.fire({
+        title: "Hubo un error...",
+        text: `${error.code}. Tienes que tener la API activa para que funcione. Visita github.com/jeantpdev/api-prueba-cancer-mama`,
+        icon: "error"
+      });
+    }
+
   }
 
   async function getData(values){
-
-    const dataEnviar = {
+    try {
+      const dataEnviar = {
         "edad": values.inputEdad,
         "menopausia": values.inputMenopause,
         "tumorTamaño": values.inputTumorSize,
@@ -55,24 +66,29 @@ export default function PruebaReact() {
       url: " http://127.0.0.1:5700/enviar-datos-prueba/",
       data: dataEnviar
   });
-  return res
+    return res
+    } catch (error) {
+      console.log(error)
+      return "No se ha podido"
+    }
+
   }
 
   return (
-    <div className="flex flex-col-reverse content-center gap-y-5 md:flex-row-reverse md:mt-56 rounded-lg shadow-lg py-6 px-5">
+    <div className="flex flex-col-reverse content-center gap-y-5 md:flex-row-reverse md:mt-44 rounded-lg shadow-lg py-6 px-5">
 
       <div className="md:w-1/2">
 
         <div className="flex flex-wrap justify-center">
 
-          <div className="flex flex-wrap gap-x-5 md:gap-x-5 md:gap-y-3 justify-center">
+          <div className="flex flex-wrap gap-y-5 gap-x-5 md:gap-x-5 md:gap-y-3 justify-center">
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 Edad
               </label>
               <div className="relative">
-                <select id = 'inputAge' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputAge' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.age).map((clave, index) => (
                   <option key={index} value={significados.age[clave]}>{clave}</option>
                 ))}
@@ -84,11 +100,11 @@ export default function PruebaReact() {
             </div>
             
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 Menopause
               </label>
               <div className="relative">
-                <select id = 'inputMenopause' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputMenopause' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.menopause).map((clave, index) => (
                   <option key={index} value={significados.menopause[clave]}>{clave}</option>
                 ))}
@@ -100,11 +116,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 Tumor size
               </label>
               <div className="relative">
-                <select id = 'inputTumorSize' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputTumorSize' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.tumorSize).map((clave, index) => (
                   <option key={index} value={significados.tumorSize[clave]}>{clave}</option>
                 ))}
@@ -116,11 +132,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 inv-nodes
               </label>
               <div className="relative">
-                <select id = 'inputInvNodes' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputInvNodes' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.invNodes).map((clave, index) => (
                   <option key={index} value={significados.invNodes[clave]}>{clave}</option>
                 ))}
@@ -132,11 +148,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 node-caps
               </label>
               <div className="relative">
-                <select id = 'inputNodeCaps' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputNodeCaps' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.nodeCaps).map((clave, index) => (
                   <option key={index} value={significados.nodeCaps[clave]}>{clave}</option>
                 ))}
@@ -148,11 +164,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 deg-malig
               </label>
               <div className="relative">
-                <select id = 'inputDegMalig' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputDegMalig' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.degMalig).map((clave, index) => (
                   <option key={index} value={significados.degMalig[clave]}>{clave}</option>
                 ))}
@@ -164,11 +180,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 breast
               </label>
               <div className="relative">
-                <select id = 'inputBreast' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputBreast' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.breast).map((clave, index) => (
                   <option key={index} value={significados.breast[clave]}>{clave}</option>
                 ))}
@@ -180,11 +196,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 breast-quead
               </label>
               <div className="relative">
-                <select id = 'inputBreastQuad' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputBreastQuad' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.breastQuad).map((clave, index) => (
                   <option key={index} value={significados.breastQuad[clave]}>{clave}</option>
                 ))}
@@ -196,11 +212,11 @@ export default function PruebaReact() {
             </div>
 
             <div className="">
-              <label className="block w-96 md:w-auto text-gray-700 text-xm mb-2" htmlFor="grid-state">
+              <label className="block text-gray-700 text-xm mb-2" htmlFor="grid-state">
                 irradiat
               </label>
               <div className="relative">
-                <select id = 'inputIrradiat' className="block appearance-none w-full md:w-44 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select id = 'inputIrradiat' className="block appearance-none w-56 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 {Object.keys(significados.irradiat).map((clave, index) => (
                   <option key={index} value={significados.irradiat[clave]}>{clave}</option>
                 ))}
@@ -224,17 +240,19 @@ export default function PruebaReact() {
 
       </div>
 
-      <div className="md:w-1/2 flex flex-col gap-y-5 px-5 py-5 rounded-lg" >
+      <div className="md:w-1/2 flex flex-col gap-y-5 px-2 py-5 rounded-lg" >
         <div className="">
-            <label className="block w-96 md:w-full text-xm mb-2" htmlFor="grid-first-name">
+            <label className="block md:text-xm mb-2" htmlFor="grid-first-name">
               Nombre
             </label>
-            <input className="appearance-none block w-full md:w-96  border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tu nombre"/>
+            <input className="appearance-none block w-56 max-w-[13rem] border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tu nombre"/>
         </div>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil commodi eos modi illum neque numquam facere eaque sed ea nemo nesciunt eveniet, eligendi, veniam fuga vel architecto aperiam quis?</p>
-        
-        <p className='hidden sm:block text-xl text-gray-800'>Resultado: <span>{resultado && resultado}</span></p>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil commodi eos modi illum neque numquam facere eaque sed ea nemo nesciunt eveniet, eligendi, veniam fuga vel architecto aperiam quis?</p>
+        </div>
+        <div>
+          <p className='hidden sm:block text-xl text-gray-800'>Resultado: <span>{resultado && resultado}</span></p>
+        </div>
       </div>
 
     </div>

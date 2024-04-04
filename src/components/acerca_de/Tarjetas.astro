@@ -3,10 +3,10 @@
 const {titulo, descripcion, redireccion} = Astro.props
 ---
 
-    <div class="flex flex-col bg-zinc-900 min-w-96 text-white py-4 px-8 h-56 justify-evenly gap-y-4 sm:w-[32rem] sm:px-10">
+    <div class="flex flex-col bg-zinc-900 min-w-64 h-64 text-white py-4 px-8 justify-evenly gap-y-4 sm:w-[32rem] sm:px-10">
         <h3 class="font-bold uppercase text-2xl"> <i class="fa-solid fa-circle-info"></i> {titulo}</h3>
 
-        <p class="text-xl">{descripcion}</p>
+        <p class="text-lg sm:text-xl">{descripcion}</p>
         <div class="flex justify-end">
             <a href={redireccion} class="py-2 bg-pink-500 w-24 rounded-lg text-center hover:bg-pink-600 font-bold" >Ir</a>
         </div>
