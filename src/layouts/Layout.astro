@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
+const currentPage = Astro.url.pathname
 ---
 
 <!doctype html>
@@ -23,7 +23,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Navigation client:load />
+		<Navigation client:load currentPage = {currentPage}/>
 		<Container>
 			<slot />
 		</Container>

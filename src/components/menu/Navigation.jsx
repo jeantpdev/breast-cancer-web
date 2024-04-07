@@ -1,18 +1,14 @@
-import { Fragment, useState, useEffect } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from 'react'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Inicio', href: '/', current: true },
-  { name: 'Prueba', href: '/prueba/', current: false },
-  { name: 'Acerca de', href: '/acerca-de/', current: false },
+  { name: 'Inicio', href: '/' },
+  { name: 'Prueba', href: '/prueba/' },
+  { name: 'Acerca de', href: '/acerca-de/' },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Navigation() {
+export default function Navigation({ currentPage }) {
 
   return (
     <Disclosure as="nav">
@@ -47,11 +43,8 @@ export default function Navigation() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
+                        className={`rounded-md px-3 py-2 font-medium ${currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
+                        aria-current={currentPage === item.href ? 'page' : undefined}
                       >
                         {item.name}
                       </a>
@@ -69,18 +62,14 @@ export default function Navigation() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
+                <a
                   key={item.name}
-                  as="a"
                   href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-400 hover:bg-gray-500 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
+                  className={`block rounded-md px-3 py-2 text-base font-medium ${currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-400 hover:bg-gray-500 hover:text-white'}`}
+                  aria-current={currentPage === item.href ? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </a>
               ))}
             </div>
           </Disclosure.Panel>
@@ -89,4 +78,3 @@ export default function Navigation() {
     </Disclosure>
   )
 }
-

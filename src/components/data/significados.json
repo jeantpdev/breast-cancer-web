@@ -6,6 +6,6 @@
  "nodeCaps":{"no": "0", "yes": "1"},
  "degMalig":{"1": "0", "2": "1", "3": "2"},
  "breast":{"left": "0", "right": "1"},
- "breastQuad":{"central": "0", "left_low": "1", "left_up": "2", "right_low": "3", "right_up": "4"},
+ "breastQuead":{"central": "0", "left_low": "1", "left_up": "2", "right_low": "3", "right_up": "4"},
  "irradiat":{"no": "0", "yes": "1"}
 }
