@@ -56,11 +56,10 @@ export default function PruebaReact() {
       "breastQuead": data.breastQuead,
       "irradiat": data.irradiat
     }
-    console.log(dataEnviar)
 
     const res = axios({
       method: "POST",
-      url: " http://127.0.0.1:5700/enviar-datos-prueba/",
+      url: "https://breast-cancer-api-v5ss.onrender.com/enviar-datos-prueba/",
       data: dataEnviar
     });
     return res
