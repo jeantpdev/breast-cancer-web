@@ -114,12 +114,15 @@ export default function PruebaReact() {
       </div>
 
       <div className="md:w-1/2 flex flex-col gap-y-5 px-5 py-5 rounded-lg" >
+      {/*
         <div className="">
-          <label className="block md:w-full text-xm mb-2" htmlFor="grid-first-name">
-            Nombre
-          </label>
-          <input className="appearance-none block w-full md:w-96  border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tu nombre" />
-        </div>
+        <label className="block md:w-full text-xm mb-2" htmlFor="grid-first-name">
+          Nombre
+        </label>
+        <input className="appearance-none block w-full md:w-96  border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tu nombre" />
+      </div>
+          */}
+
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil commodi eos modi illum neque numquam facere eaque sed ea nemo nesciunt eveniet, eligendi, veniam fuga vel architecto aperiam quis?</p>
 
